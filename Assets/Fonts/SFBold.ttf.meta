@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: f4405eee6125712429a12dddb0175066
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: SFNS Display
+  fontNames:
+  - SFNS Display
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: c9f7507dc878c7448b37c9f417cd9f41, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -11,7 +11,7 @@ public class Buttons : MonoBehaviour {
 	public GameObject gameOver;
 
 	public ScreenFader screenFader;
-
+	
 	public bool reloadPressed;
 
     public void OnMouseUpAsButton(){

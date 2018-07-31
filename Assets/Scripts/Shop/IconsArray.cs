@@ -17,15 +17,15 @@ public class IconsArray : MonoBehaviour {
     }
 
     void OnEnable(){
-
-		PlayerPrefs.SetInt ("HighScore", 0);//обнуление highscore
+		/*PlayerPrefs.SetInt("AllSkinsBought", 0);
+		 PlayerPrefs.SetInt ("HighScore", 0);//обнуление highscore
         PlayerPrefs.SetInt("Coins", 4500);
         PlayerPrefs.SetString(arrowsIcons[1].name, "Close");
-         //PlayerPrefs.SetString (arrowsIcons[0].name, "Open");
-             //PlayerPrefs.SetString ("Arrow (1)", "Close");
-           //  PlayerPrefs.SetString ("Arrow (2)", "Close");
-         //PlayerPrefs.SetString (arrowsIcons[3].name, "Close");
-           /*  PlayerPrefs.SetString ("Arrow (4)", "Close");
+         PlayerPrefs.SetString (arrowsIcons[0].name, "Open");
+             PlayerPrefs.SetString ("Arrow (1)", "Close");
+             PlayerPrefs.SetString ("Arrow (2)", "Close");
+         PlayerPrefs.SetString (arrowsIcons[3].name, "Close");
+             PlayerPrefs.SetString ("Arrow (4)", "Close");
              PlayerPrefs.SetString ("Arrow (5)", "Close");
              PlayerPrefs.SetString ("Arrow (6)", "Close");
              PlayerPrefs.SetString ("Arrow (7)", "Close");
@@ -36,7 +36,7 @@ public class IconsArray : MonoBehaviour {
          PlayerPrefs.SetString ("Now Arrow", "Arrow"); //нужно зайти в магазин, чтобы поменялась стрелка в главном меню
          */
 
-        _selectSpriteTransform.position = _previewArrowSpriteTransform.position;
+		_selectSpriteTransform.position = _previewArrowSpriteTransform.position;
 
 		for (int k = 1; k < arrowsIcons.Length; k++) {
 			if (PlayerPrefs.GetString (arrowsIcons [k].name) == "Open")

@@ -3,20 +3,18 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-
     public Sound[] sounds;
     static AudioManager instance;
 
     void Awake()
     {
-
-        if (instance == null)
-            instance = this;
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
+		if (instance == null)
+			instance = this;
+		else
+		{
+			Destroy(gameObject);
+			return;
+		}
 
         DontDestroyOnLoad(gameObject);
 
@@ -43,7 +41,7 @@ public class AudioManager : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)//если нет указанного аудиофайла, сообщаем об ошибке
         {
-            Debug.LogWarning("Sound: " + name + " not found");
+            Debug.LogWarning("Sound: " + name + " not found by Play method");
             return;
         }
         s.source.Play();
@@ -54,23 +52,22 @@ public class AudioManager : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)//если нет указанного аудиофайла, сообщаем об ошибке
         {
-            Debug.LogWarning("Sound: " + name + " not found");
+            Debug.LogWarning("Sound: " + name + " not found by Stop method");
             return;
         }
         s.source.Stop();
     }
 
-    public void CheckPlaying(string name, string name_1)
-    {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        Sound s_1 = Array.Find(sounds, sound_1 => sound_1.name == name_1);
-        while (s.source.isPlaying && s_1.source.isPlaying)
-        {
-            return;
-        }
-        if (!s.source.isPlaying && !s_1.source.isPlaying)
-            Play("MainTheme");
-
-
-    }
+	public bool CheckEnabled(string name)
+	{
+		Sound s = Array.Find(sounds, sound => sound.name == name);
+		if (s == null)//если нет указанного аудиофайла, сообщаем об ошибке
+		{
+			Debug.LogWarning("Sound: " + name + " not found by CheckEnabled method");
+		}
+		if (s.source.enabled)
+			return true;
+		else
+			return false;
+	}
 }

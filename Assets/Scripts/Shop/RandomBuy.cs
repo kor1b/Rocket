@@ -28,7 +28,7 @@ public class RandomBuy : MonoBehaviour {
     WaitForSeconds timeBtwBlinking;//время между морганием
 
     public CoinsCount coinsCount;
-    public AudioManager audioManager;
+    AudioManager audioManager;
 
 	void CheckMoney(){
 		//если достаточно денег, то запускаем анимацию
@@ -37,6 +37,8 @@ public class RandomBuy : MonoBehaviour {
 		//если НЕ достаточно денег, то выключаем анимацию
 		else
 			anim.enabled = false;
+
+		coinsCount.ShowMoney();//отображаем количество денег
 	}
 
 	void OnEnable(){
@@ -46,16 +48,16 @@ public class RandomBuy : MonoBehaviour {
 
 	void Start () {
 
+		audioManager = FindObjectOfType<AudioManager>();
+		_previewArrowSpriteImage = previewArrowSprite.GetComponent<Image>();
+		_watchVideoBtnRectTransform = watchVideoBtn.GetComponent<RectTransform>();
+		CheckAllSkinsBought();
+
 		for (int i = 1; i < allArrows.Length; i++) {
 			if (PlayerPrefs.GetString(allArrows [i].name) != "Open")
 				closeArrows.Add (allArrows[i]);
 		}
-
-        _previewArrowSpriteImage = previewArrowSprite.GetComponent<Image>();
-        _watchVideoBtnRectTransform = watchVideoBtn.GetComponent<RectTransform>();
-
-        timeBtwBlinking = new WaitForSeconds(0.1f);
-
+		timeBtwBlinking = new WaitForSeconds(0.1f);
 	}
 		
 	public void OnMouseUpAsButton(){
@@ -88,10 +90,13 @@ public class RandomBuy : MonoBehaviour {
 
         if (closeArrows.Count > 1)
         {
-            //включаем музыку для рандома и выключаем музыку главной темы
-            audioManager.Stop("MainTheme");
-            audioManager.Play("ShopRandom");
+			//включаем музыку для рандома и выключаем музыку главной темы
+			if (audioManager.CheckEnabled("ShopRandom"))
+			{//если музыка рандома отключена, то НЕ отключаем главную тему
+				audioManager.Stop("MainTheme");
+				audioManager.Play("ShopRandom");
 
+			}
             //Анимация выбора случайного скина
             randGO = closeArrows[Random.Range(0, closeArrows.Count)];
             for (int i = 0; i < 75; i++)
@@ -108,10 +113,12 @@ public class RandomBuy : MonoBehaviour {
                 yield return new WaitForSeconds(0.2f);//время между выбором следующего скина
 
             }
-            //включаем музыку для главной темы
-            audioManager.Play("MainTheme");
+			//включаем музыку для главной темы
+			if (audioManager.CheckEnabled("ShopRandom"))//если музыка рандома отключена, то НЕ перезапускаем главную тему
+				audioManager.Play("MainTheme");
         }
-        audioManager.Play("Click");//щелчок
+		if (audioManager.CheckEnabled("Click"))
+			audioManager.Play("Click");//щелчок
 
         selectSprite.transform.position = closeArrows [removeNum].transform.position;
 
@@ -141,14 +148,23 @@ public class RandomBuy : MonoBehaviour {
 
         if (closeArrows.Count < 1)
         {//если не осталось скинов, то кнопка рандома пропадает
-            Destroy(gameObject);
-            _watchVideoBtnRectTransform.position = new Vector2(_watchVideoBtnRectTransform.position.x - 75,
-                _watchVideoBtnRectTransform.position.y);
+			PlayerPrefs.SetInt("AllSkinsBought", 1);
+			CheckAllSkinsBought();
         }
 
         CheckMoney ();
 
         
     }
+
+	void CheckAllSkinsBought()
+	{
+		if (PlayerPrefs.GetInt("AllSkinsBought") == 1)
+		{
+			Destroy(gameObject);
+			_watchVideoBtnRectTransform.position = new Vector2(_watchVideoBtnRectTransform.position.x - 75,
+				_watchVideoBtnRectTransform.position.y);
+		}
+	}
 	}
 

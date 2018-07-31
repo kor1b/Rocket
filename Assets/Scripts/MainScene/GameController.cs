@@ -5,6 +5,7 @@ public class GameController : MonoBehaviour {
 	public PlayerController playerController;
 	public BackgroundController backgroundController;
     public GameOverManager gameOverManager;
+	AudioManager audioManager;
 
 	public GameObject player;
 	public GameObject explosion;
@@ -19,6 +20,8 @@ public class GameController : MonoBehaviour {
 	void Start(){
 		backgroundController.ChangeBackground ();
 		playerSprite = player.GetComponent<SpriteRenderer> ();
+		audioManager = FindObjectOfType<AudioManager>();
+
 	}
 
 	void Update(){
@@ -31,7 +34,9 @@ public class GameController : MonoBehaviour {
         if (gameHasEnded == false)
         {
             Instantiate(explosion, player.transform.position, Quaternion.identity);//создаем взрыв
-            FindObjectOfType<AudioManager>().Play("Explosion");
+		    if (audioManager.CheckEnabled("Explosion"))//еслт звуки не выключены
+				audioManager.Play("Explosion");
+
             gameHasEnded = true;
         }
 			playerController.enabled = false;

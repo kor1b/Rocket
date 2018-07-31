@@ -7,7 +7,12 @@ public class CoinsCount : MonoBehaviour {
 
 	public bool showMoney;//true - объект только отображает количество денег
 
-	public int coins; 
+	public int coins;
+
+	private void OnEnable()
+	{
+		ShowMoney();
+	}
 
 	void Start () {
 

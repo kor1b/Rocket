@@ -15,20 +15,25 @@ public class HazardController : MonoBehaviour
     GameObject downHazard;
     Transform child;
     AudioManager audioManager;
+	bool soundEnabled;
 
-    private void Start()
+	private void Start()
     {
         objectPooler = ObjectPooler.Instance;
         _spawnedHazardsFromPool = objectPooler.spawnedHazards;
         audioManager = FindObjectOfType<AudioManager>();//доступ к звуку рывка
-    }
+		if (audioManager.CheckEnabled("Dash"))
+			soundEnabled = true;
+	}
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && gameController.gameHasEnded == false)
         {
             tap = true;
+			if (soundEnabled)//если включен звук
             audioManager.Play("Dash");//проигрываем звук
+
             playerController.speed = 0f;
             for (int i = 0; i < _spawnedHazardsFromPool.Count; i++)
                 _spawnedHazardsFromPool[i].GetComponent<LetMoving>().letSpeed = maxLetSpeed;
