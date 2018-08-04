@@ -4,8 +4,6 @@ using System;
 
 public class ArrowSprite : MonoBehaviour
 {
-
-
     public GameObject[] arrows;
     Image _image;
     GameObject arrow;

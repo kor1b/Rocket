@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 
 public class LetMoving : MonoBehaviour//, IPooledObject
 {
@@ -27,11 +28,6 @@ public class LetMoving : MonoBehaviour//, IPooledObject
 
     }
 
-    /* public void OnObjectSpawn()
-      {
-         // GetComponent<Rigidbody2D>().velocity = Vector2.down * letSpeed;
-      }*/
-
     private void FixedUpdate()
     {
         _rb.velocity = Vector2.down * letSpeed;
@@ -39,22 +35,15 @@ public class LetMoving : MonoBehaviour//, IPooledObject
 
     void Update()
     {
-        if (_transform.position.y < -10)
-            gameObject.SetActive(false);
-
+		if (_transform.position.y < -10)
+		{
+			gameObject.SetActive(false);
+		}
         //при проигрыше выставляет альфа канал препятствий на 0
         if (gameController.gameHasEnded)
         {
            _spriteRenderer.color = Color.Lerp(_spriteRenderer.color, Color.clear, Time.deltaTime * lerpSpeed);
 
         }
-
-        //геймплей с удерживанием
-        /*if (Input.GetMouseButton(0)) {
-
-                playerController.speed = 0f;
-                letSpeed = maxLetSpeed;
-            }  
-    */
     }
  }

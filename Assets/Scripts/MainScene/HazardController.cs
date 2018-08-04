@@ -7,6 +7,8 @@ public class HazardController : MonoBehaviour
     public float minLetSpeed = 4;
     public float maxLetSpeed = 8;
 
+	float childCount;
+
     public GameController gameController;
     public PlayerController playerController;
     ObjectPooler objectPooler;
@@ -14,7 +16,7 @@ public class HazardController : MonoBehaviour
     List<GameObject> _spawnedHazardsFromPool;//кєшированный доступ к препятствиям в цикле
     GameObject downHazard;
     Transform child;
-    AudioManager audioManager;
+	AudioManager audioManager;
 	bool soundEnabled;
 
 	private void Start()
@@ -24,6 +26,7 @@ public class HazardController : MonoBehaviour
         audioManager = FindObjectOfType<AudioManager>();//доступ к звуку рывка
 		if (audioManager.CheckEnabled("Dash"))
 			soundEnabled = true;
+		childCount = transform.childCount;
 	}
 
     void Update()
@@ -38,20 +41,20 @@ public class HazardController : MonoBehaviour
             for (int i = 0; i < _spawnedHazardsFromPool.Count; i++)
                 _spawnedHazardsFromPool[i].GetComponent<LetMoving>().letSpeed = maxLetSpeed;
         }
-
+		
         if (!tap)//устанавливает для всех препятствий одинаковую скорость
         {
-            for (int i = 0; i < transform.childCount; i++)
-            {
-                child = transform.GetChild(i);
-                child.GetComponent<LetMoving>().letSpeed = minLetSpeed;
-            }
-        }
-
+				for (int i = 0; i < childCount; i++)
+				{
+					child = transform.GetChild(i);
+					child.GetComponent<LetMoving>().letSpeed = minLetSpeed;
+				}
+			}
+        
         if (!gameController.gameHasEnded && _spawnedHazardsFromPool.Count != 0)
         {
             downHazard = _spawnedHazardsFromPool[0];
-            if (_spawnedHazardsFromPool[0].transform.position.y < -3.25f)
+            if (downHazard.transform.position.y < -3.7f)
             {
                 tap = false;
                 playerController.speed = playerController.maxSpeed;
