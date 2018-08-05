@@ -6,14 +6,14 @@ public class GameOverManager : MonoBehaviour {
 
 	Animator anim;
 
-	public GameObject score;
+	public CoinsCount coinsCount;
 
 	bool animShowed;//показывалась ли уже анимация появления gameover
 
 	void Start() {
 
 		animShowed = false;
-		PlayerPrefs.SetInt ("Coins", PlayerPrefs.GetInt ("Coins") + score.GetComponent<CoinsCount>().coins);
+		PlayerPrefs.SetInt ("Coins", PlayerPrefs.GetInt ("Coins") + coinsCount.coins);
         anim = GetComponent<Animator>();
     }
 		

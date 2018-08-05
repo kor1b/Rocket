@@ -161,9 +161,8 @@ public class RandomBuy : MonoBehaviour {
 	{
 		if (PlayerPrefs.GetInt("AllSkinsBought") == 1)
 		{
+			_watchVideoBtnRectTransform.GetComponent<RectTransform>().localPosition = new Vector2 (0, -220);
 			Destroy(gameObject);
-			_watchVideoBtnRectTransform.position = new Vector2(_watchVideoBtnRectTransform.position.x - 75,
-				_watchVideoBtnRectTransform.position.y);
 		}
 	}
 	}

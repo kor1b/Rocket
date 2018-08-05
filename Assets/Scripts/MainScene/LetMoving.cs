@@ -25,7 +25,6 @@ public class LetMoving : MonoBehaviour//, IPooledObject
 
         _rb = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-
     }
 
     private void FixedUpdate()
@@ -35,7 +34,7 @@ public class LetMoving : MonoBehaviour//, IPooledObject
 
     void Update()
     {
-		if (_transform.position.y < -10)
+		if (_transform.position.y <= -10)
 		{
 			gameObject.SetActive(false);
 		}

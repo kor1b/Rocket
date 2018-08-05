@@ -19,6 +19,8 @@ public class HazardController : MonoBehaviour
 	AudioManager audioManager;
 	bool soundEnabled;
 
+	public bool hazardsSpawned;//метка о том, что на сцене есть препятствия
+
 	private void Start()
     {
         objectPooler = ObjectPooler.Instance;
@@ -31,13 +33,30 @@ public class HazardController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && gameController.gameHasEnded == false)
-        {
-            tap = true;
-			if (soundEnabled)//если включен звук
-            audioManager.Play("Dash");//проигрываем звук
+		if (_spawnedHazardsFromPool.Count != 0)
+			hazardsSpawned = true;
+		else
+			hazardsSpawned = false;
 
-            playerController.speed = 0f;
+		if (!gameController.gameHasEnded && hazardsSpawned)
+		{
+			downHazard = _spawnedHazardsFromPool[0];
+			if (downHazard.transform.position.y < -3.9f)
+			{
+				tap = false;
+				playerController.speed = playerController.maxSpeed;
+				_spawnedHazardsFromPool.Remove(downHazard);
+			}
+		}
+
+		if (Input.GetMouseButtonDown(0) && gameController.gameHasEnded == false && hazardsSpawned)
+        {
+			tap = true;
+				if (soundEnabled)//если включен звук
+					audioManager.Play("Dash");//проигрываем звук
+
+				playerController.speed = 0f;
+			
             for (int i = 0; i < _spawnedHazardsFromPool.Count; i++)
                 _spawnedHazardsFromPool[i].GetComponent<LetMoving>().letSpeed = maxLetSpeed;
         }
@@ -51,16 +70,7 @@ public class HazardController : MonoBehaviour
 				}
 			}
         
-        if (!gameController.gameHasEnded && _spawnedHazardsFromPool.Count != 0)
-        {
-            downHazard = _spawnedHazardsFromPool[0];
-            if (downHazard.transform.position.y < -3.7f)
-            {
-                tap = false;
-                playerController.speed = playerController.maxSpeed;
-                _spawnedHazardsFromPool.Remove(downHazard);
-            }
-        }
+       
 
     }
 }
