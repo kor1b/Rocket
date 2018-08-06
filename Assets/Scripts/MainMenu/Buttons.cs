@@ -53,11 +53,6 @@ public class Buttons : MonoBehaviour {
 			mainMenu.SetActive (true);
             System.GC.Collect();//запрашиваем GC
 			break;
-
-		case "Settings":
-			settings.SetActive (true);
-			mainMenu.SetActive (false);
-			break;
 		}
 	}
 

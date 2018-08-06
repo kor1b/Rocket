@@ -11,11 +11,18 @@ public class SwitchController : EventTrigger {
 
 	Slider slider;
 
-	private void Start()
+	static float musicValue = 1;
+	static float soundsValue = 1;
+
+	private void Awake()
 	{
 		audioManager = FindObjectOfType<AudioManager>();
 		slider = GetComponent<Slider>();
 		handleColor = GetComponentInChildren<HandleColor>();
+		if (name == "Music")
+			slider.value = musicValue;
+		else if (name == "Sounds")
+			slider.value = soundsValue;
 	}
 
 	public void Play_PauseMusic(string audioName)
@@ -25,11 +32,13 @@ public class SwitchController : EventTrigger {
 		{
 			s.source.enabled = false;
 			slider.value = 0;
+			musicValue = slider.value;
 		}
 		else
 		{
 			s.source.enabled = true;
 			slider.value = 1;
+			musicValue = slider.value;
 		}
 		handleColor.ChangeColor();
 	}
@@ -41,11 +50,13 @@ public class SwitchController : EventTrigger {
 			{
 				audioManager.sounds[i].source.enabled = false;
 				slider.value = 0;
+				soundsValue = slider.value;
 			}
 			else
 			{
 				audioManager.sounds[i].source.enabled = true;
 				slider.value = 1;
+				soundsValue = slider.value;
 			}
 			handleColor.ChangeColor();
 			audioManager.sounds[i].source.Stop();

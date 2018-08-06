@@ -13,6 +13,7 @@ public class HandleColor : MonoBehaviour {
 	private void Start()
 	{
 		handle = GetComponent<Image>();
+		ChangeColor();
 	}
 
 	public void ChangeColor()

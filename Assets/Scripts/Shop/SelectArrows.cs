@@ -61,7 +61,7 @@ public class SelectArrows : MonoBehaviour {
 
 		iconsArrayScript.arrowName = gameObject.name;
 
-		if (PlayerPrefs.GetString (gameObject.name) != "Close") {
+		if (PlayerPrefs.GetString (gameObject.name, "Close") != "Close") {
 			PlayerPrefs.SetString ("Now Arrow", gameObject.name);
 			shopPreviewArrowSprite.sprite = arrowSprite;
             audioManager.Play("Click");//проигрываем щелчок
