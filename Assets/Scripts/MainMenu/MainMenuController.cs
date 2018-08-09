@@ -7,6 +7,7 @@ public class MainMenuController : MonoBehaviour {
 
 	void Start(){
 
+		PlayerPrefs.SetString("FromGameOver", "False");//чтобы не было багов с тем, что не прогружается главное меню
 		backgroundController.ChangeBackground ();
 	}
 

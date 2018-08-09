@@ -14,7 +14,34 @@ public class Buttons : MonoBehaviour {
 	
 	public bool reloadPressed;
 
-    public void OnMouseUpAsButton(){
+	private void Update()
+	{
+		if (Application.platform == RuntimePlatform.Android)
+		{
+		if (Input.GetKey(KeyCode.Home) || Input.GetKey(KeyCode.Escape) || Input.GetKey(KeyCode.Menu))
+		{
+			Debug.Log("lol");
+			Back();
+		}
+		}
+	}
+
+	void Back()
+	{
+		shopBG.SetActive(false);
+		settings.SetActive(false);
+
+		if (PlayerPrefs.GetString("FromGameOver") == "True")
+		{
+			gameOver.SetActive(true);
+		}
+		else
+			mainMenu.SetActive(true);
+
+		PlayerPrefs.SetString("FromGameOver", "False");
+	}
+
+	public void OnMouseUpAsButton(){
 		switch (gameObject.name) {
 
 		case "PlayGame":
@@ -27,16 +54,7 @@ public class Buttons : MonoBehaviour {
 			break;
 
 		case "Back":
-
-			shopBG.SetActive (false);
-			settings.SetActive (false);
-
-                if (PlayerPrefs.GetString ("FromGameOver") == "True") {
-				gameOver.SetActive (true);
-			} else
-				mainMenu.SetActive (true);
-			
-			PlayerPrefs.SetString ("FromGameOver", "False");
+		    Back();
 			break;
 
 		case "Reload":
