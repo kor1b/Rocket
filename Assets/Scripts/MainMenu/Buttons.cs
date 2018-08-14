@@ -9,6 +9,7 @@ public class Buttons : MonoBehaviour {
 	public GameObject mainScene;
 	public GameObject settings;
 	public GameObject gameOver;
+	public GameObject gameOverGeneralMenu;
 
 	public ScreenFader screenFader;
 	
@@ -18,9 +19,8 @@ public class Buttons : MonoBehaviour {
 	{
 		if (Application.platform == RuntimePlatform.Android)
 		{
-		if (Input.GetKey(KeyCode.Home) || Input.GetKey(KeyCode.Escape) || Input.GetKey(KeyCode.Menu))
+		if (Input.GetKey(KeyCode.Escape))
 		{
-			Debug.Log("lol");
 			Back();
 		}
 		}
@@ -28,17 +28,31 @@ public class Buttons : MonoBehaviour {
 
 	void Back()
 	{
-		shopBG.SetActive(false);
-		settings.SetActive(false);
-
-		if (PlayerPrefs.GetString("FromGameOver") == "True")
+		//если включена панель меню проигрыща, то возвращаемся в главное меню (кнопка Home)
+		if (gameOverGeneralMenu.activeSelf && gameOver.activeSelf)
 		{
-			gameOver.SetActive(true);
-		}
-		else
+			PlayerPrefs.SetString("ReloadKey", "Zero");
+			gameOver.SetActive(false);
+			mainScene.SetActive(false);
 			mainMenu.SetActive(true);
+			System.GC.Collect();//запрашиваем GC
+		}
 
-		PlayerPrefs.SetString("FromGameOver", "False");
+		//в ином случае - выходим из панели (кнопка Back)
+		else
+		{
+			shopBG.SetActive(false);
+			settings.SetActive(false);
+
+			if (PlayerPrefs.GetString("FromGameOver") == "True")
+			{
+				gameOver.SetActive(true);
+			}
+			else
+				mainMenu.SetActive(true);
+
+			PlayerPrefs.SetString("FromGameOver", "False");
+		}
 	}
 
 	public void OnMouseUpAsButton(){
@@ -65,11 +79,7 @@ public class Buttons : MonoBehaviour {
 			break;
 
 		case "Home":
-			PlayerPrefs.SetString ("ReloadKey", "Zero");
-			gameOver.SetActive (false);
-			mainScene.SetActive (false);
-			mainMenu.SetActive (true);
-            System.GC.Collect();//запрашиваем GC
+			Back();
 			break;
 		}
 	}

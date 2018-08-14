@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -2085,6 +2085,7 @@ MonoBehaviour:
   mainScene: {fileID: 913776863}
   settings: {fileID: 44012563}
   gameOver: {fileID: 1630573164}
+  gameOverGeneralMenu: {fileID: 606012718}
   screenFader: {fileID: 0}
   reloadPressed: 0
 --- !u!114 &606763555
@@ -7350,6 +7351,7 @@ MonoBehaviour:
   mainScene: {fileID: 913776863}
   settings: {fileID: 0}
   gameOver: {fileID: 0}
+  gameOverGeneralMenu: {fileID: 0}
   screenFader: {fileID: 1470881187}
   reloadPressed: 0
 --- !u!114 &759047604
@@ -7506,7 +7508,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -5}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &811123050
@@ -7812,8 +7814,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -7916,6 +7918,7 @@ MonoBehaviour:
   mainScene: {fileID: 913776863}
   settings: {fileID: 0}
   gameOver: {fileID: 0}
+  gameOverGeneralMenu: {fileID: 0}
   screenFader: {fileID: 0}
   reloadPressed: 0
 --- !u!114 &843150922
@@ -8588,6 +8591,7 @@ MonoBehaviour:
   mainScene: {fileID: 913776863}
   settings: {fileID: 0}
   gameOver: {fileID: 0}
+  gameOverGeneralMenu: {fileID: 0}
   screenFader: {fileID: 0}
   reloadPressed: 0
 --- !u!114 &1052929783
@@ -13589,7 +13593,7 @@ SpriteRenderer:
   m_SortingLayerID: -1111160191
   m_SortingLayer: -1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: b2dd09d54975e9141ad0e5d8ed43d84f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aaf5102ab4a08e7469aa7dfe01a44aef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -14708,6 +14712,7 @@ MonoBehaviour:
   mainScene: {fileID: 913776863}
   settings: {fileID: 0}
   gameOver: {fileID: 1630573164}
+  gameOverGeneralMenu: {fileID: 606012718}
   screenFader: {fileID: 0}
   reloadPressed: 0
 --- !u!114 &1432917538
@@ -15156,7 +15161,7 @@ Prefab:
     - target: {fileID: 224872817481860634, guid: 75b5f035f110dd1409c528fa9f7a67af,
         type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 224872817481860634, guid: 75b5f035f110dd1409c528fa9f7a67af,
         type: 2}
@@ -16061,7 +16066,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -16447,6 +16452,7 @@ MonoBehaviour:
   mainScene: {fileID: 0}
   settings: {fileID: 0}
   gameOver: {fileID: 0}
+  gameOverGeneralMenu: {fileID: 0}
   screenFader: {fileID: 0}
   reloadPressed: 0
 --- !u!114 &1816156021
@@ -16657,6 +16663,7 @@ MonoBehaviour:
   mainScene: {fileID: 0}
   settings: {fileID: 44012563}
   gameOver: {fileID: 0}
+  gameOverGeneralMenu: {fileID: 0}
   screenFader: {fileID: 0}
   reloadPressed: 0
 --- !u!114 &1829540755
@@ -17169,6 +17176,7 @@ MonoBehaviour:
   mainScene: {fileID: 913776863}
   settings: {fileID: 0}
   gameOver: {fileID: 0}
+  gameOverGeneralMenu: {fileID: 0}
   screenFader: {fileID: 1470881187}
   reloadPressed: 0
 --- !u!114 &1980102680
@@ -17357,6 +17365,7 @@ MonoBehaviour:
   mainScene: {fileID: 0}
   settings: {fileID: 44012563}
   gameOver: {fileID: 1630573164}
+  gameOverGeneralMenu: {fileID: 606012718}
   screenFader: {fileID: 0}
   reloadPressed: 0
 --- !u!114 &2017450749

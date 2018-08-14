@@ -17,7 +17,7 @@ public class ArrowSprite : MonoBehaviour
 
     void OnEnable()
     {
-        GameObject selArr = Array.Find(arrows, arrow => PlayerPrefs.GetString("Now Arrow") == arrow.name);
+        GameObject selArr = Array.Find(arrows, arrow => PlayerPrefs.GetString("Now Arrow", "Arrow") == arrow.name);
 
         _image.sprite = selArr.GetComponent<SelectArrows>().arrowSprite;
         PlayerController.arrowSprite = selArr.GetComponent<SelectArrows>().arrowSprite;

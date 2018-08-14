@@ -18,7 +18,7 @@ public class HazardController : MonoBehaviour
 	List<GameObject> _spawnedHazardsFromPool;//кєшированный доступ к препятствиям в цикле
 	GameObject downHazard;
 	Transform child;
-	public GameObject windPS;
+	public GameObject windPS;//система частиц ветра
 
 	public bool hazardsSpawned;//метка о том, что на сцене есть препятствия
 
