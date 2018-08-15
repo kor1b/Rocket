@@ -18,25 +18,28 @@ public class CoinsCount : MonoBehaviour {
 
 		if (!showMoney) {//проверка на то, в магазине ли мы
 
-			    if (scoreController.score <= 300)
-				    coins = 0;
+			if (scoreController.score <= 300)
+				coins = 0;
 
-				if (300 < scoreController.score && scoreController.score <= 1000)
-					coins = Random.Range(0, 2);
+			else if (300 < scoreController.score && scoreController.score <= 500)
+				coins = Random.Range(0, 2);
 
-			    if (1000 < scoreController.score && scoreController.score <= 3000)
-					coins = Random.Range (1, 4);
+			else if (500 < scoreController.score && scoreController.score < 1000)
+				coins = Random.Range(1, 3);
 
-				if (3000 < scoreController.score && scoreController.score <= 5000)
-					coins = Random.Range (3, 6);
+			else if (1000 < scoreController.score && scoreController.score <= 3000)
+				coins = Random.Range(2, 4);
 
-				if (scoreController.score > 5000 && scoreController.score <= 10000)
-					coins = Random.Range (5, 11);
+			else if (3000 < scoreController.score && scoreController.score <= 5000)
+				coins = Random.Range(3, 6);
 
-			    if (scoreController.score > 10000 && scoreController.score <= 20000)
+			else if (scoreController.score > 5000 && scoreController.score <= 10000)
+				coins = Random.Range(5, 11);
+
+			else if (scoreController.score > 10000 && scoreController.score <= 20000)
 				coins = Random.Range(10, 21);
 
-			    if (scoreController.score > 20000)
+			else if (scoreController.score > 20000)
 				coins = Random.Range(20, 41);
 
 			PlayerPrefs.SetInt ("Coins", PlayerPrefs.GetInt ("Coins") + coins);

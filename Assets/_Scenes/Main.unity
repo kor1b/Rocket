@@ -572,6 +572,7 @@ MonoBehaviour:
   iconsArray: {fileID: 544718955}
   shopPreviewArrow: {fileID: 1635058991}
   selectSpeed: 0.2
+  randomBuy: {fileID: 865129695}
 --- !u!114 &76365105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1201,6 +1202,7 @@ MonoBehaviour:
   iconsArray: {fileID: 544718955}
   shopPreviewArrow: {fileID: 1635058991}
   selectSpeed: 0.2
+  randomBuy: {fileID: 865129695}
 --- !u!114 &363337432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1606,6 +1608,7 @@ MonoBehaviour:
   iconsArray: {fileID: 544718955}
   shopPreviewArrow: {fileID: 1635058991}
   selectSpeed: 0.2
+  randomBuy: {fileID: 865129695}
 --- !u!114 &506574290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1891,6 +1894,7 @@ MonoBehaviour:
   iconsArray: {fileID: 544718955}
   shopPreviewArrow: {fileID: 1635058991}
   selectSpeed: 0.2
+  randomBuy: {fileID: 865129695}
 --- !u!114 &584709104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6970,6 +6974,7 @@ MonoBehaviour:
   iconsArray: {fileID: 544718955}
   shopPreviewArrow: {fileID: 1635058991}
   selectSpeed: 0.2
+  randomBuy: {fileID: 865129695}
 --- !u!114 &711441176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8192,6 +8197,7 @@ MonoBehaviour:
   watchVideoBtn: {fileID: 1351145937}
   removeNum: 0
   price: 225
+  coroutineIsPlaying: 0
   coinsCount: {fileID: 318441452}
 --- !u!114 &865129696
 MonoBehaviour:
@@ -14887,6 +14893,7 @@ MonoBehaviour:
   iconsArray: {fileID: 544718955}
   shopPreviewArrow: {fileID: 1635058991}
   selectSpeed: 0.2
+  randomBuy: {fileID: 865129695}
 --- !u!114 &1453693972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15255,6 +15262,7 @@ MonoBehaviour:
   iconsArray: {fileID: 544718955}
   shopPreviewArrow: {fileID: 1635058991}
   selectSpeed: 0.2
+  randomBuy: {fileID: 865129695}
 --- !u!114 &1551570557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15905,6 +15913,7 @@ MonoBehaviour:
   iconsArray: {fileID: 544718955}
   shopPreviewArrow: {fileID: 1635058991}
   selectSpeed: 0.2
+  randomBuy: {fileID: 865129695}
 --- !u!114 &1697103961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16288,6 +16297,7 @@ MonoBehaviour:
   iconsArray: {fileID: 544718955}
   shopPreviewArrow: {fileID: 1635058991}
   selectSpeed: 0.2
+  randomBuy: {fileID: 865129695}
 --- !u!114 &1805502965
 MonoBehaviour:
   m_ObjectHideFlags: 0

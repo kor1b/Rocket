@@ -20,6 +20,8 @@ public class RandomBuy : MonoBehaviour {
 
 	public int price;
 
+	public bool coroutineIsPlaying = false;
+
 	GameObject previousRandGO;
 	GameObject randGO;
 
@@ -65,7 +67,12 @@ public class RandomBuy : MonoBehaviour {
         //если достаточно денег, то запускаем рулетку
 		if (PlayerPrefs.GetInt ("Coins") >= price) {
 			anim.enabled = false;//выключение анимации 
+
+				removeNum = Random.Range(0, closeArrows.Count);
+
 			StartCoroutine (TimeBtwRandom ());
+
+			coroutineIsPlaying = true;
 
 			for (int k = 0; k < allArrows.Length; k++) {
 				
@@ -75,7 +82,8 @@ public class RandomBuy : MonoBehaviour {
 			back.GetComponent<Button> ().interactable = false;
 
 			PlayerPrefs.SetInt ("BuyArrowCount", 1);
-			removeNum = Random.Range (0, closeArrows.Count);
+			
+
 			PlayerPrefs.SetString (closeArrows [removeNum].name, "Open");
 
 			PlayerPrefs.SetInt ("Coins", PlayerPrefs.GetInt ("Coins") - price);
@@ -152,6 +160,7 @@ public class RandomBuy : MonoBehaviour {
 			CheckAllSkinsBought();
         }
 
+		coroutineIsPlaying = false;
         CheckMoney ();
 
         

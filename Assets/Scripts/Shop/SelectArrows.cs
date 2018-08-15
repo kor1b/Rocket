@@ -16,6 +16,7 @@ public class SelectArrows : MonoBehaviour {
 
 	public float selectSpeed;//скорость, с которой перемещается объект выделения
 
+	public RandomBuy randomBuy;
     AudioManager audioManager;
 	IconsArray iconsArrayScript;
 	Image shopPreviewArrowSprite;
@@ -57,15 +58,19 @@ public class SelectArrows : MonoBehaviour {
 	}
 
 	public void OnMouseUpAsButton(){
-		click = true;
 
-		iconsArrayScript.arrowName = gameObject.name;
+		if (!randomBuy.coroutineIsPlaying)//если не совершается покупка
+		{
+			click = true;
 
-		if (PlayerPrefs.GetString (gameObject.name, "Close") != "Close") {
-			PlayerPrefs.SetString ("Now Arrow", gameObject.name);
-			shopPreviewArrowSprite.sprite = arrowSprite;
-            audioManager.Play("Click");//проигрываем щелчок
+			iconsArrayScript.arrowName = gameObject.name;
+
+			if (PlayerPrefs.GetString(gameObject.name, "Close") != "Close")
+			{
+				PlayerPrefs.SetString("Now Arrow", gameObject.name);
+				shopPreviewArrowSprite.sprite = arrowSprite;
+				audioManager.Play("Click");//проигрываем щелчок
+			}
 		}
-
 	}
 }
