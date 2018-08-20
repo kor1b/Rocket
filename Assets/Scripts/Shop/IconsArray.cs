@@ -17,6 +17,7 @@ public class IconsArray : MonoBehaviour {
     }
 
     void OnEnable(){
+		//PlayerPrefs.SetInt("Coins", 1000);
 		/*PlayerPrefs.SetInt("AllSkinsBought", 0);
 		PlayerPrefs.SetInt ("HighScore", 0);//обнуление highscore
         PlayerPrefs.SetInt("Coins", 4500);
@@ -34,7 +35,7 @@ public class IconsArray : MonoBehaviour {
          
         PlayerPrefs.SetInt ("BuyArrowCount", 0);
          PlayerPrefs.SetString ("Now Arrow", "Arrow"); //нужно зайти в магазин, чтобы поменялась стрелка в главном меню*/
-         
+
 
 		_selectSpriteTransform.position = _previewArrowSpriteTransform.position;
 

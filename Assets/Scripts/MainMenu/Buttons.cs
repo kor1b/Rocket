@@ -17,18 +17,16 @@ public class Buttons : MonoBehaviour {
 
 	private void Update()
 	{
-		if (Application.platform == RuntimePlatform.Android)
-		{
-		if (Input.GetKey(KeyCode.Escape))
-		{
-			Back();
-		}
-		}
+#if UNITY_ANDROID
+			if (Input.GetKey(KeyCode.Escape))
+			{
+				Back();
+			}	
+#endif
 	}
-
 	void Back()
 	{
-		//если включена панель меню проигрыща, то возвращаемся в главное меню (кнопка Home)
+		//если включена панель меню проигрыша, то возвращаемся в главное меню (кнопка Home)
 		if (gameOverGeneralMenu.activeSelf && gameOver.activeSelf)
 		{
 			PlayerPrefs.SetString("ReloadKey", "Zero");
