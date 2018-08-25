@@ -9,6 +9,7 @@ public class HazardController : MonoBehaviour
 
 	float childCount;
 
+	public TapFlashController tapFlashController;
 	public GameController gameController;
 	public PlayerController playerController;
 	ObjectPooler objectPooler;
@@ -52,10 +53,13 @@ public class HazardController : MonoBehaviour
 
 		if (Input.GetMouseButtonDown(0) && gameController.gameHasEnded == false && hazardsSpawned)
 		{
-			tap = true;
-			if (soundEnabled)//если включен звук
+			if (soundEnabled && !tap)
+			{//если включен звук
 				audioManager.Play("Dash");//проигрываем звук
-
+				tapFlashController.Flash();
+			}
+			tap = true;
+			
 			playerController.speed = 0f;
 
 			for (int i = 0; i < _spawnedHazardsFromPool.Count; i++)

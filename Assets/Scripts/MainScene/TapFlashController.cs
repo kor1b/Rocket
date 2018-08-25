@@ -22,11 +22,16 @@ public class TapFlashController : MonoBehaviour {
                 image.color = Color.Lerp(image.color, Color.clear, flashSpeed * Time.deltaTime);
 
 
-            if (Input.GetMouseButtonDown(0))
-                image.color = flashColor;
+            //if (Input.GetMouseButtonDown(0) && !hazardController.tap)
+              //  image.color = flashColor;
         }
 
         else
             image.color = Color.Lerp(image.color, Color.clear, flashSpeed * Time.deltaTime);
     }        
+
+	public void Flash()
+	{
+		image.color = flashColor;
+	}
 }

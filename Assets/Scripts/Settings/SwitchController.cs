@@ -25,6 +25,11 @@ public class SwitchController : EventTrigger {
 			slider.value = soundsValue;
 	}
 
+	private void FixedUpdate()
+	{
+		handleColor.ChangeColor();
+	}
+
 	public void Play_PauseMusic(string audioName)
 	{
 		s = Array.Find(audioManager.sounds, sound => sound.name == audioName);
