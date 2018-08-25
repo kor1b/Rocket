@@ -42,7 +42,7 @@ public class SelectArrows : MonoBehaviour {
 	void Update(){
 
 		if (click == true) {
-			_selectTransform.position = Vector3.Lerp (_selectTransform.position, _transform.position, selectSpeed * Time.deltaTime);
+			_selectTransform.position = Vector3.Lerp (_selectTransform.position, _transform.position, selectSpeed);
 			iconsArrayScript.InteractebleOff ();
 		}
 

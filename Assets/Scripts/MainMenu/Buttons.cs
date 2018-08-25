@@ -79,11 +79,6 @@ public class Buttons : MonoBehaviour {
 		case "Home":
 			Back();
 			break;
-
-		case "Stats":
-				Debug.Log("Leaderboard");
-			Social.ShowLeaderboardUI();
-			break;
 		}
 	}
 
