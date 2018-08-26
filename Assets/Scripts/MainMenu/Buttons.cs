@@ -79,6 +79,15 @@ public class Buttons : MonoBehaviour {
 		case "Home":
 			Back();
 			break;
+
+		case "Stats":
+			Social.ShowLeaderboardUI();
+			Debug.Log("Leaderboard");
+			break;
+
+		case "Heart"://оставить отзыв в гугл плей
+			Application.OpenURL("https://play.google.com/store/apps/details?id=com.Bimicore.RocketHop_3");
+			break;
 		}
 	}
 

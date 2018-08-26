@@ -9,6 +9,8 @@ public class HighScore : MonoBehaviour {
 
         if (scoreController.score > PlayerPrefs.GetInt("HighScore", 0)) { 
 
+			Social.ReportScore(scoreController.score, GPS.leaderboard, (bool success) =>{ });
+
             PlayerPrefs.SetInt("HighScore", scoreController.score);
 			GetComponent<Text> ().text = "NEW HIGH SCORE";
 			GetComponent<Animator> ().enabled = true;
