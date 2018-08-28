@@ -7,6 +7,7 @@ public class GameOverManager : MonoBehaviour {
 	Animator anim;
 
 	public CoinsCount coinsCount;
+	//public ADSController adsController;
 
 	bool animShowed;//показывалась ли уже анимация появления gameover
 
@@ -21,9 +22,10 @@ public class GameOverManager : MonoBehaviour {
 			if (animShowed == false) {//появление gameover
 				anim.SetTrigger ("GameOver");
 				animShowed = true;
-			}
+			   // adsController.ShowInterstitial();
+		}
 
-			PlayerPrefs.SetString ("ReloadKey", "Zero");
+		PlayerPrefs.SetString ("ReloadKey", "Zero");
 			if (buttons.reloadPressed == true)
 				PlayerPrefs.SetString ("ReloadKey", "Reload");
 		}

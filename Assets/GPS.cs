@@ -4,7 +4,7 @@ using GooglePlayGames.BasicApi;
 
 public class GPS : MonoBehaviour
 {
-	public const string leaderboard = "CgkIrOW39fQEEAIQAQ";
+	public const string leaderboard = "CgkIl__F3doMEAIQAQ";
 	public static GPS Instance { set; get; }
 	public bool isLogedIn;
 	void Awake()
