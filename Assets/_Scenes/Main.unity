@@ -696,6 +696,7 @@ MonoBehaviour:
   playerController: {fileID: 1624247826}
   backgroundController: {fileID: 1870217891}
   gameOverManager: {fileID: 1630573169}
+  adsController: {fileID: 2059865423}
   player: {fileID: 1624247824}
   explosion: {fileID: 1985203818449836, guid: 67ff3776e3a6959409edc029a721e77c, type: 2}
   trail: {fileID: 132754924}
@@ -14421,7 +14422,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2059865423}
         m_MethodName: ShowRewardedVideo
         m_Mode: 1
         m_Arguments:
@@ -16322,7 +16323,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2059865423}
         m_MethodName: ShowRewardedVideo
         m_Mode: 1
         m_Arguments:
@@ -18079,6 +18080,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2059865424}
+  - component: {fileID: 2059865423}
   m_Layer: 0
   m_Name: ADS Controller
   m_TagString: Untagged
@@ -18086,6 +18088,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2059865423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2059865422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fbb3b61ab31dbf4e8dacf06a8100df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2059865424
 Transform:
   m_ObjectHideFlags: 0
@@ -18187,6 +18200,7 @@ MonoBehaviour:
   maxLetSpeed: 10
   gameController: {fileID: 155440908}
   playerController: {fileID: 1624247826}
+  tapFlashController: {fileID: 1521807503}
   windPS: {fileID: 1061461532}
   hazardsSpawned: 0
 --- !u!1 &2080058117

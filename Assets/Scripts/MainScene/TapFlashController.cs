@@ -14,16 +14,18 @@ public class TapFlashController : MonoBehaviour {
         image = GetComponent<Image>();
     }
 
-    void Update()
+	public void Flash()
+	{
+		image.color = flashColor;
+
+	}
+
+	void Update()
     {
         if (!gameController.gameHasEnded && hazardController.hazardsSpawned)
         {
             if (!Input.GetMouseButtonDown(0))
                 image.color = Color.Lerp(image.color, Color.clear, flashSpeed * Time.deltaTime);
-
-
-            if (Input.GetMouseButtonDown(0))
-                image.color = flashColor;
         }
 
         else

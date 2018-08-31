@@ -1,12 +1,10 @@
-﻿/*using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using AppodealAds.Unity.Api;
 using AppodealAds.Unity.Common;
 
 public class ADSController : MonoBehaviour, IRewardedVideoAdListener {
 
-	const string appKey = "b29e62fae4e288032603b1a42059e402efefd26970fa8a32";
+	const string appKey = "fb8058d83db46700c711298e1110805894e176233719122f";
 
 	public static int loseCount;//счетчик смертей
 
@@ -15,6 +13,7 @@ public class ADSController : MonoBehaviour, IRewardedVideoAdListener {
 
 	void InitAds()
 	{
+		Appodeal.disableNetwork("inmobi");
 		Appodeal.disableLocationPermissionCheck();
 		Appodeal.initialize(appKey, Appodeal.BANNER | Appodeal.INTERSTITIAL | Appodeal.REWARDED_VIDEO);
 		Appodeal.setRewardedVideoCallbacks(this);
@@ -24,44 +23,33 @@ public class ADSController : MonoBehaviour, IRewardedVideoAdListener {
 	void Start()
 	{
 		InitAds();
-		ShowBanner();
+		//ShowBanner();
 	}
 
 	public void ShowInterstitial()
 	{
 		loseCount++;
 		Debug.Log(loseCount);
-		if (loseCount == 7)
-		{
-			//if (Appodeal.isLoaded(Appodeal.INTERSTITIAL))
-			//{
+		if (loseCount == 7)//если 7 проигрышей, то показывается реклама
 				Appodeal.show(Appodeal.INTERSTITIAL);
-				loseCount = 0;
-			//}
-			//else
-			//	loseCount = 6;
-		}
-		//else if (loseCount == 15)
-			//Appodeal.show(Appodeal.vide)
 	}
 
-	public void ShowBanner()
+	/*показывается баннер
+	 public void ShowBanner() 
 	{
-		//if (Appodeal.isLoaded(Appodeal.BANNER))
 			Appodeal.show(Appodeal.BANNER_BOTTOM);
-
-		
-	}
+	}*/
 
 	public void ShowRewardedVideo() {
-		//if (Appodeal.isLoaded(Appodeal.REWARDED_VIDEO))
 			Appodeal.show(Appodeal.REWARDED_VIDEO);
 	}
 
 	#region Rewarded Video callback handlers
 	public void onRewardedVideoLoaded(bool isPrecache) { print("Video loaded"); }
 	public void onRewardedVideoFailedToLoad() { print("Video failed"); }
-	public void onRewardedVideoShown() { print("Video shown"); }
+	public void onRewardedVideoShown() { print("Video shown");
+		coinsCount.ShowMoney();
+	}
 	public void onRewardedVideoClosed(bool finished) { print("Video closed"); }
 	public void onRewardedVideoFinished(double amount, string name) { PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 50);
 		coinsCount.ShowMoney();
@@ -69,4 +57,4 @@ public class ADSController : MonoBehaviour, IRewardedVideoAdListener {
 	public void onRewardedVideoExpired() { Debug.Log("Video expired"); }
 	#endregion
 }
-*/
+

@@ -6,7 +6,7 @@ public class GameController : MonoBehaviour {
 	public BackgroundController backgroundController;
     public GameOverManager gameOverManager;
 	AudioManager audioManager;
-	//public ADSController adsController;
+	public ADSController adsController;
 
 	public GameObject player;
 	public GameObject explosion;
@@ -49,7 +49,7 @@ public class GameController : MonoBehaviour {
 
 
         gameOverManager.GameOverMenuAppear();//появление меню проигрыша
-		//adsController.ShowInterstitial();
+		adsController.ShowInterstitial();
 			Destroy (player, 2f);//уничтожаем игрока
 
 	}

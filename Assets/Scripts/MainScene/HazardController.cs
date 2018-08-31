@@ -14,6 +14,7 @@ public class HazardController : MonoBehaviour
 	ObjectPooler objectPooler;
 	AudioManager audioManager;
 	bool soundEnabled;
+	public TapFlashController tapFlashController;
 
 	List<GameObject> _spawnedHazardsFromPool;//кєшированный доступ к препятствиям в цикле
 	GameObject downHazard;
@@ -52,10 +53,13 @@ public class HazardController : MonoBehaviour
 
 		if (Input.GetMouseButtonDown(0) && gameController.gameHasEnded == false && hazardsSpawned)
 		{
-			tap = true;
-			if (soundEnabled)//если включен звук
+			if (soundEnabled && !tap)//если включен звук
+			{
 				audioManager.Play("Dash");//проигрываем звук
-
+				tapFlashController.Flash();
+			}
+			tap = true;
+			
 			playerController.speed = 0f;
 
 			for (int i = 0; i < _spawnedHazardsFromPool.Count; i++)
