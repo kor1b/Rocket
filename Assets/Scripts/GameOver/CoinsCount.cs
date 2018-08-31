@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class CoinsCount : MonoBehaviour {
 
 	public ScoreController scoreController;
+	public ADSController adsController;
 
 	public bool showMoney;//true - объект только отображает количество денег
 
@@ -12,6 +13,14 @@ public class CoinsCount : MonoBehaviour {
 	private void OnEnable()
 	{
 		ShowMoney();
+	}
+
+	private void Update()
+	{
+		if (adsController.rewardedVideoShowed)
+		{
+			ShowMoney();
+		}
 	}
 
 	void Awake () {
