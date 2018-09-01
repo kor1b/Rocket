@@ -1,4 +1,4 @@
-﻿/*using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.Purchasing;
 
@@ -132,4 +132,4 @@ public class PurchaseManager : MonoBehaviour, IStoreListener
 	{
 		OnFailedP(product, failureReason);
 	}
-}*/
+}

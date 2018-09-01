@@ -31,7 +31,7 @@ public class GameController : MonoBehaviour {
 	}
 
 	public void EndGame(){
-
+		Debug.Log(PlayerPrefs.GetInt("no_adsBought"));
         if (gameHasEnded == false)
         {
             Instantiate(explosion, player.transform.position, Quaternion.identity);//создаем взрыв
@@ -49,7 +49,10 @@ public class GameController : MonoBehaviour {
 
 
         gameOverManager.GameOverMenuAppear();//появление меню проигрыша
+
+		if (PlayerPrefs.GetInt("no_adsBought") != 1)//если не куплен отказ от рекламы, то показываем межстраничный баннер
 		adsController.ShowInterstitial();
+
 			Destroy (player, 2f);//уничтожаем игрока
 
 	}

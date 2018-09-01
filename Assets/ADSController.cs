@@ -42,9 +42,12 @@ public class ADSController : MonoBehaviour, IRewardedVideoAdListener {
 	public void ShowInterstitial()
 	{
 		loseCount++;
-		Debug.Log(loseCount);
-		if (loseCount == 7)//если 7 проигрышей, то показывается реклама
-				Appodeal.show(Appodeal.INTERSTITIAL);
+		Debug.Log(loseCount + "loses");
+		if (loseCount == 7)
+		{//если 7 проигрышей, то показывается реклама
+			Appodeal.show(Appodeal.INTERSTITIAL);
+			Debug.Log("7 lose");
+		}
 	}
 
 	/*показывается баннер
