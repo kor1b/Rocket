@@ -12,6 +12,9 @@ TagManager:
   - CircleHazard
   - MainMenu
   - MainScene
+  - WatchVideoShop
+  - WatchVideoGameOver
+  - ADS Controller
   layers:
   - Default
   - TransparentFX

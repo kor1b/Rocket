@@ -86,7 +86,7 @@ public class Buttons : MonoBehaviour {
 			break;
 
 		case "Heart"://оставить отзыв в гугл плей
-			Application.OpenURL("https://play.google.com/store/apps/details?id=com.Bimicore.RocketHop_3");
+			Application.OpenURL("https://play.google.com/store/apps/details?id=com.Bimicore.RocketHop_4");
 			break;
 		}
 	}

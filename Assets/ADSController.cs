@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using AppodealAds.Unity.Api;
 using AppodealAds.Unity.Common;
+using UnityEngine.UI;
 
 public class ADSController : MonoBehaviour, IRewardedVideoAdListener {
 
@@ -8,10 +9,11 @@ public class ADSController : MonoBehaviour, IRewardedVideoAdListener {
 
 	public static int loseCount;//счетчик смертей
 
-	public bool rewardedVideoShowed = false;
+	public Text noAdsNow;
+	public GameObject noAdsNowParentShop;
+	public GameObject noAdsNowParentGameOver;
 
 	static ADSController instance;
-	CoinsCount coinsCount;
 
 	void InitAds()
 	{
@@ -20,6 +22,7 @@ public class ADSController : MonoBehaviour, IRewardedVideoAdListener {
 		Appodeal.disableWriteExternalStoragePermissionCheck();
 		Appodeal.initialize(appKey, Appodeal.BANNER | Appodeal.INTERSTITIAL | Appodeal.REWARDED_VIDEO);
 		Appodeal.setRewardedVideoCallbacks(this);
+
 	}
 
 	void Awake()
@@ -31,6 +34,7 @@ public class ADSController : MonoBehaviour, IRewardedVideoAdListener {
 		}
 		else
 			Destroy(gameObject);
+
 	}
 
 	void Start()
@@ -57,19 +61,24 @@ public class ADSController : MonoBehaviour, IRewardedVideoAdListener {
 	}*/
 
 	public void ShowRewardedVideo() {
-		Appodeal.show(Appodeal.REWARDED_VIDEO);
-		coinsCount.ShowMoney();
+		if (!Appodeal.isLoaded(Appodeal.REWARDED_VIDEO) && noAdsNowParentShop)
+		    Instantiate(noAdsNow, noAdsNow.transform.position, Quaternion.identity, noAdsNowParentShop.transform);
+        else if (!Appodeal.isLoaded(Appodeal.REWARDED_VIDEO) && noAdsNowParentGameOver)
+			Instantiate(noAdsNow, noAdsNow.transform.position, Quaternion.identity, noAdsNowParentGameOver.transform);
+		else
+			Appodeal.show(Appodeal.REWARDED_VIDEO);
 	}
 
 	#region Rewarded Video callback handlers
 	public void onRewardedVideoLoaded(bool isPrecache) { print("Video loaded"); }
 	public void onRewardedVideoFailedToLoad() { print("Video failed"); }
-	public void onRewardedVideoShown() { print("Video shown");}
+	public void onRewardedVideoShown() { print("Video shown");
+	}
 	public void onRewardedVideoClosed(bool finished) { print("Video closed");}
 	public void onRewardedVideoFinished(double amount, string name) { PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 50);
-		rewardedVideoShowed = true;
 	}
-	public void onRewardedVideoExpired() { Debug.Log("Video expired");}
+	public void onRewardedVideoExpired() { Debug.Log("Video expired");
+	}
 	#endregion
 }
 
