@@ -16,10 +16,10 @@ public class CoinsCount : MonoBehaviour {
 		ShowMoney();
 	}
 
-	private void FixedUpdate()
+	/*private void FixedUpdate()
 	{		
 			ShowMoney();
-	}
+	}*/
 
 	void Awake()
 	{
@@ -60,6 +60,7 @@ public class CoinsCount : MonoBehaviour {
     public void ShowMoney()
     {
 			coinsText.text = PlayerPrefs.GetInt("Coins").ToString();//выводим кол-во монет
+		print(gameObject.name);
 		}
 	}
 

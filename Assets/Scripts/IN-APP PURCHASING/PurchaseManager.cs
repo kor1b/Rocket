@@ -26,10 +26,15 @@ public class PurchaseManager : MonoBehaviour, IStoreListener
 	/// </summary>
 	public static event OnFailedPurchase PurchaseFailed;
 
-	private void Awake()
+	public void StartInitPurchasing()
 	{
 		InitializePurchasing();
 	}
+
+	/*private void Awake()
+	{
+		InitializePurchasing();
+	}*/
 	/// <summary>
 	/// Проверить, куплен ли товар.
 	/// </summary>

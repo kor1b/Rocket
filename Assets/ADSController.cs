@@ -76,6 +76,7 @@ public class ADSController : MonoBehaviour, IRewardedVideoAdListener {
 	}
 	public void onRewardedVideoClosed(bool finished) { print("Video closed");}
 	public void onRewardedVideoFinished(double amount, string name) { PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 50);
+		FindObjectOfType<CoinsCount>().ShowMoney();
 	}
 	public void onRewardedVideoExpired() { Debug.Log("Video expired");
 	}

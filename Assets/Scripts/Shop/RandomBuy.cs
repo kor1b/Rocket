@@ -40,7 +40,7 @@ public class RandomBuy : MonoBehaviour {
 		else
 			anim.enabled = false;
 
-		coinsCount.ShowMoney();//отображаем количество денег
+		//coinsCount.ShowMoney();//отображаем количество денег
 	}
 
 	void OnEnable(){
@@ -107,7 +107,7 @@ public class RandomBuy : MonoBehaviour {
 			}
             //Анимация выбора случайного скина
             randGO = closeArrows[Random.Range(0, closeArrows.Count)];
-            for (int i = 0; i < 75; i++)
+            for (int i = 0; i < 1; i++)
             {
 
                 //цикл, чтобы повторно не выбирался скин
