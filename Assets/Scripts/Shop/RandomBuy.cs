@@ -32,7 +32,7 @@ public class RandomBuy : MonoBehaviour {
     public CoinsCount coinsCount;
     AudioManager audioManager;
 
-	void CheckMoney(){
+	internal void CheckMoney(){
 		//если достаточно денег, то запускаем анимацию
 		if (PlayerPrefs.GetInt ("Coins") >= price)
 			anim.enabled = true;
@@ -107,7 +107,7 @@ public class RandomBuy : MonoBehaviour {
 			}
             //Анимация выбора случайного скина
             randGO = closeArrows[Random.Range(0, closeArrows.Count)];
-            for (int i = 0; i < 1; i++)
+            for (int i = 0; i < 75; i++)
             {
 
                 //цикл, чтобы повторно не выбирался скин

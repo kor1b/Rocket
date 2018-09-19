@@ -31,7 +31,6 @@ public class GameController : MonoBehaviour {
 	}
 
 	public void EndGame(){
-		Debug.Log(PlayerPrefs.GetInt("no_adsBought"));
         if (gameHasEnded == false)
         {
             Instantiate(explosion, player.transform.position, Quaternion.identity);//создаем взрыв

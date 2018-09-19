@@ -60,7 +60,6 @@ public class CoinsCount : MonoBehaviour {
     public void ShowMoney()
     {
 			coinsText.text = PlayerPrefs.GetInt("Coins").ToString();//выводим кол-во монет
-		print(gameObject.name);
 		}
 	}
 

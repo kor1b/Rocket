@@ -67,6 +67,9 @@ public class ADSController : MonoBehaviour, IRewardedVideoAdListener {
 			Instantiate(noAdsNow, noAdsNow.transform.position, Quaternion.identity, noAdsNowParentGameOver.transform);
 		else
 			Appodeal.show(Appodeal.REWARDED_VIDEO);
+
+		if(FindObjectOfType<RandomBuy>())
+		FindObjectOfType<RandomBuy>().CheckMoney();
 	}
 
 	#region Rewarded Video callback handlers
