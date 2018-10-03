@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class CoinsCount : MonoBehaviour {
+public class CoinsCount : MonoBehaviour
+{
 
 	public ScoreController scoreController;
 
@@ -26,40 +27,49 @@ public class CoinsCount : MonoBehaviour {
 		coinsText = GetComponent<Text>();
 
 		if (!showMoney)
-			{//проверка на то, в магазине ли мы
+		{//проверка на то, в магазине ли мы
 
-				if (scoreController.score <= 300)
-					coins = 0;
+			if (scoreController.score <= 300)
+				coins = 0;
 
-				else if (300 < scoreController.score && scoreController.score <= 500)
-					coins = Random.Range(0, 2);
+			else if (300 < scoreController.score && scoreController.score <= 500)
+				coins = 1;
 
-				else if (500 < scoreController.score && scoreController.score < 1000)
-					coins = Random.Range(1, 3);
+			else if (500 < scoreController.score && scoreController.score < 800)
+				coins = Random.Range(2, 4);
 
-				else if (1000 < scoreController.score && scoreController.score <= 3000)
-					coins = Random.Range(2, 4);
+			else if (800 < scoreController.score && scoreController.score < 1000)
+				coins = Random.Range(3, 5);
 
-				else if (3000 < scoreController.score && scoreController.score <= 5000)
-					coins = Random.Range(3, 6);
+			else if (1000 < scoreController.score && scoreController.score <= 2000)
+				coins = Random.Range(5, 7);
 
-				else if (scoreController.score > 5000 && scoreController.score <= 10000)
-					coins = Random.Range(5, 11);
+			else if (2000 < scoreController.score && scoreController.score <= 3000)
+				coins = Random.Range(7, 10);
 
-				else if (scoreController.score > 10000 && scoreController.score <= 20000)
-					coins = Random.Range(10, 21);
+			else if (3000 < scoreController.score && scoreController.score <= 5000)
+				coins = Random.Range(10, 15);
 
-				else if (scoreController.score > 20000)
-					coins = Random.Range(20, 41);
+			else if (scoreController.score > 5000 && scoreController.score <= 7000)
+				coins = Random.Range(15, 20);
 
-				PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + coins);
-			}
-			ShowMoney();
+			else if (7000 < scoreController.score && scoreController.score <= 10000)
+				coins = Random.Range(20, 30);
+
+			else if (scoreController.score > 10000 && scoreController.score <= 20000)
+				coins = Random.Range(30, 50);
+
+			else if (scoreController.score > 20000)
+				coins = Random.Range(50, 70);
+
+			PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + coins);
 		}
-
-    public void ShowMoney()
-    {
-			coinsText.text = PlayerPrefs.GetInt("Coins").ToString();//выводим кол-во монет
-		}
+		ShowMoney();
 	}
+
+	public void ShowMoney()
+	{
+		coinsText.text = PlayerPrefs.GetInt("Coins").ToString();//выводим кол-во монет
+	}
+}
 
